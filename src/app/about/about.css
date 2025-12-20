@@ -1,0 +1,197 @@
+/* Animated gradient background for the section */
+body, .container, section.bg-light {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+  min-height: 100vh;
+}
+
+section.bg-light {
+  background: linear-gradient(120deg, #f8fafc 60%, #e0e7ff 100%);
+}
+
+/* Enhanced glassmorphism (liquid glass) effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 8px 0 rgba(0,0,0,0.04);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-top: 1.5px solid rgba(255,255,255,0.7);
+  border-left: 1.5px solid rgba(255,255,255,0.7);
+  transition: box-shadow 0.3s, border 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: linear-gradient(120deg, rgba(99,102,241,0.08) 0%, rgba(236,72,153,0.08) 100%);
+  z-index: 0;
+  pointer-events: none;
+  animation: glassGradientMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes glassGradientMove {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(10%, 10%) scale(1.05); }
+}
+
+.glass-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.28), 0 2px 12px 0 rgba(0,0,0,0.08);
+  border: 1.5px solid rgba(99,102,241,0.25);
+  transform: translateY(-4px);
+}
+
+/* Modern heading and text enhancements */
+h2, h3, h4, h5 {
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: #1a6fb4;
+}
+
+.glass-card .card-title {
+  color: #1a6fb4;
+  font-weight: 700;
+}
+
+.glass-card .card-text {
+  color: #333a;
+}
+
+/* Optional: subtle animation for glass cards */
+.glass-card {
+  animation: glassFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes glassFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General container styling */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Gradient background for About and Section areas */
+section#about-us {
+  background: linear-gradient(135deg, #f0f4ff, #ffffff);
+  position: relative;
+}
+
+/* Divider line with glass effect */
+hr {
+  border: 0;
+  border-top: 1.5px solid rgba(26, 111, 180, 0.3);
+  width: 60px;
+  margin: 1rem auto;
+}
+
+/* Text styles */
+p.text-muted, .lead {
+  color: #555;
+}
+
+/* Card base styling */
+.card {
+  border: none;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 32px 0 rgba(26, 111, 180, 0.15);
+}
+
+.card-title {
+  font-weight: 700;
+  color: #1a6fb4;
+}
+
+.card-text {
+  color: #555;
+}
+
+/* Icon styling */
+.bi-check-circle-fill {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+/* Animation delay classes */
+.animate__delay-1s {
+  animation-delay: 0.5s;
+}
+.animate__delay-2s {
+  animation-delay: 1s;
+}
+.animate__delay-3s {
+  animation-delay: 1.5s;
+}
+
+/* Glassmorphism accent blobs */
+.glass-blob {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.glass-blob-1 {
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  left: -80px;
+  background: linear-gradient(135deg, rgba(26,111,180,0.25) 0%, rgba(255,255,255,0.18) 100%);
+}
+
+.glass-blob-2 {
+  width: 160px;
+  height: 160px;
+  bottom: 40px;
+  right: -60px;
+  background: linear-gradient(135deg, rgba(201,234,255,0.25) 0%, rgba(26,111,180,0.18) 100%);
+}
+
+.glass-blob-3 {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 60%;
+  background: linear-gradient(135deg, rgba(26,111,180,0.18) 0%, rgba(255,255,255,0.22) 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px;
+  }
+}

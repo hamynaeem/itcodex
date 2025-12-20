@@ -1,0 +1,162 @@
+<!-- Glassmorphism Background with Animated Blobs -->
+<div class="liquid-bg">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- Main Contact Section -->
+<section class="contact-hero">
+  <div class="container">
+    <!-- Floating Title -->
+    <div class="text-center mb-5 hero-title">
+      <h1 class="glass-title">Let's Connect</h1>
+      <p class="glass-subtitle">Transform your ideas into digital reality</p>
+      <div class="title-decoration"></div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- Contact Form - Glass Card -->
+      <div class="col-lg-8">
+        <div class="glass-card contact-form-card">
+          <div class="card-glow"></div>
+          <h3 class="form-title">Send us a message</h3>
+          
+          <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="liquid-form">
+            <div class="form-group floating-input">
+              <input type="text" class="glass-input" formControlName="name" placeholder="Full Name" title="Full Name" required>
+              <label class="floating-label">Full Name</label>
+              <div class="input-line"></div>
+            </div>
+
+            <div class="form-group floating-input">
+              <input type="email" class="glass-input" formControlName="email" placeholder="Email Address" title="Email Address" required>
+              <label class="floating-label">Email Address</label>
+              <div class="input-line"></div>
+            </div>
+
+            <div class="form-group floating-input">
+              <textarea class="glass-input glass-textarea" formControlName="message" placeholder="Type your message here" title="Your Message" rows="5" required></textarea>
+              <label class="floating-label">Your Message</label>
+              <div class="input-line"></div>
+            </div>
+
+            <button type="submit" class="liquid-btn">
+              <span class="btn-text">Send Message</span>
+              <div class="btn-ripple"></div>
+              <div class="btn-glow"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Info - Glass Cards -->
+      <div class="col-lg-4">
+        <div class="contact-info-stack">
+          <!-- Quick Contact -->
+          <div class="glass-card info-card">
+            <div class="info-icon">
+              <div class="icon-wrapper">
+                <i class="bi bi-chat-dots"></i>
+              </div>
+            </div>
+            <h4>Quick Connect</h4>
+            <p class="phone-number">+92 303 6089 020</p>
+            <p class="availability">Available Mon-Fri, 9AM-5PM</p>
+          </div>
+
+          <!-- Location Card -->
+          <div class="glass-card info-card">
+            <div class="info-icon">
+              <div class="icon-wrapper">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+            </div>
+            <h4>Visit Us</h4>
+            <p>River Garden, Gujrat, 44000</p>
+            <p class="timezone">Pakistan Standard Time (GMT +5)</p>
+          </div>
+
+          <!-- Social Connect -->
+          <div class="glass-card info-card social-card">
+            <div class="info-icon">
+              <div class="icon-wrapper">
+                <i class="bi bi-share"></i>
+              </div>
+            </div>
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#" class="social-link" title="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="social-link" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="#" class="social-link" title="Twitter">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              <a href="#" class="social-link" title="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Info Section with Liquid Cards -->
+<section class="contact-details">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-envelope"></i>
+          </div>
+          <h3>Email Support</h3>
+          <p class="detail-text">Get in touch for general inquiries</p>
+          <a href="mailto:ftech1942@gmail.com" class="detail-link">ftech1942@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-clock"></i>
+          </div>
+          <h3>Working Hours</h3>
+          <div class="hours-list">
+            <div class="hour-item">
+              <span>Mon - Fri</span>
+              <span>9:00 - 18:00</span>
+            </div>
+            <div class="hour-item">
+              <span>Saturday</span>
+              <span>9:00 - 18:00</span>
+            </div>
+            <div class="hour-item closed">
+              <span>Sunday</span>
+              <span>Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p class="detail-text">Emergency support available</p>
+          <div class="support-badge">
+            <i class="bi bi-shield-check"></i>
+            <span>Rapid Response</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
