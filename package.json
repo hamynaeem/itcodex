@@ -12,10 +12,7 @@
     "firebase:serve": "firebase serve",
     "firebase:deploy": "firebase deploy",
     "build:prod": "ng build --configuration production",
-    "deploy:firebase": "npm run build:prod && firebase deploy",
-    "build:netlify": "ng build --configuration production --output-path dist",
-    "deploy:netlify": "npm run build:netlify && netlify deploy --prod --dir=dist/browser",
-    "preview:netlify": "npm run build:netlify && netlify deploy --dir=dist/browser"
+    "deploy:firebase": "npm run build:prod && firebase deploy"
   },
   "prettier": {
     "printWidth": 100,

@@ -798,6 +798,18 @@
   opacity: 1;
 }
 
+/* Inline toast inside form */
+.inline-toast {
+  margin: 0 0 1rem 0;
+  padding: 0.6rem 1rem;
+  background: rgba(0, 0, 0, 0.06);
+  color: #222;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
 .btn-loader.active ~ .btn-text,
 .btn-loader.active ~ .btn-icon {
   opacity: 0;
@@ -940,26 +952,39 @@
 
 .info-card {
   padding: 2rem;
+  padding-top: 4rem; /* room for overlapping icon */
   text-align: center;
   flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 3rem; /* ensure bottom content (button) is visible */
 }
 
 .info-icon-container {
-  position: relative;
-  margin-bottom: 1.5rem;
-  height: 100px;
+  position: absolute;
+  top: -48px; /* overlap the top edge */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  height: auto;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 3;
 }
 
 .icon-accent {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
   animation: accentPulse 3s ease-in-out infinite;
+  z-index: 1;
 }
 
 @keyframes accentPulse {
@@ -978,21 +1003,22 @@
 }
 
 .icon-wrapper {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.9));
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.95));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   box-shadow: 
-    0 10px 24px rgba(0, 0, 0, 0.1),
+    0 12px 30px rgba(0, 0, 0, 0.12),
     inset -2px -2px 6px rgba(0, 0, 0, 0.05),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.4);
+    inset 2px 2px 6px rgba(255, 255, 255, 0.5);
   animation: iconFloat 3s ease-in-out infinite;
   position: relative;
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  z-index: 2;
 }
 
 .icon-wrapper::before {
@@ -1024,14 +1050,14 @@
 
 .phone-number {
   color: #333;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
 }
 
 .availability, .timezone {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-bottom: 0;
 }
 
@@ -1089,6 +1115,14 @@
   font-size: 1.2rem;
   position: relative;
   z-index: 1;
+}
+
+/* SVG icons in social links should inherit color and size */
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  color: inherit;
 }
 
 /* WhatsApp Special Styling */
@@ -1172,26 +1206,30 @@
 }
 
 .whatsapp-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, rgba(37, 211, 102, 0.8), rgba(37, 211, 102, 0.9));
-  border: 1.5px solid rgba(37, 211, 102, 0.7);
-  border-radius: 25px;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.95), rgba(37, 211, 102, 1));
+  border: 1.5px solid rgba(37, 211, 102, 0.8);
+  border-radius: 28px;
   color: white;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 0.9rem;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: 
-    0 8px 20px rgba(37, 211, 102, 0.25),
+    0 12px 30px rgba(37, 211, 102, 0.28),
     inset 0 1px 1px rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .whatsapp-btn::before {
@@ -1234,6 +1272,12 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 1rem;
+}
+
+/* Hide floating widget when not needed */
+.floating-contact-widget.hide,
+.floating-contact-widget.hidden {
+  display: none !important;
 }
 
 .widget-toggle {
@@ -1654,6 +1698,20 @@
   
   .detail-icon i {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .info-icon-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-bottom: 1rem;
+    z-index: 2;
+  }
+  .info-card {
+    padding-top: 2rem;
   }
 }
 

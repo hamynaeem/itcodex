@@ -35,13 +35,13 @@ export const routes: Routes = [
   {
     path: 'Flutter',
     component: Flutter,
-    canActivate: [authGuard]
+     
   },
 
   {
     path: 'Website',
     component: Website,
-    canActivate: [authGuard]
+   
   },
   {
     path:'user',
