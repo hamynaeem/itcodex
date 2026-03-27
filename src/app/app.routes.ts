@@ -5,6 +5,9 @@ import { Home } from './home/home';
 import { Services } from './services/services';
 import { Flutter } from './flutter/flutter';
 import { Website } from './website/website';
+import { User } from './user/user';
+import { Firebase } from './firebase/firebase';
+import { authGuard, nonAuthGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -31,11 +34,28 @@ export const routes: Routes = [
   },
   {
     path: 'Flutter',
-    component: Flutter
+    component: Flutter,
+    canActivate: [authGuard]
   },
 
   {
     path: 'Website',
-    component: Website
+    component: Website,
+    canActivate: [authGuard]
   },
+  {
+    path:'user',
+    component: User,
+    canActivate: [nonAuthGuard]
+  },
+  {
+    path: 'firebase',
+    component: Firebase,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'Firebase',
+    component: Firebase,
+    canActivate: [authGuard]
+  }
 ];

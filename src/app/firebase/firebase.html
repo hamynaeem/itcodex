@@ -1,0 +1,51 @@
+<div class="firebase-status-container">
+  <h2>🔥 Firebase Connection Status</h2>
+  
+  <div class="status-grid">
+    <div class="service-status" [class.connected]="firebaseStatus.auth" [class.disconnected]="!firebaseStatus.auth">
+      <h3>🔐 Authentication</h3>
+      <span class="status-badge">{{ firebaseStatus.auth ? 'Connected ✅' : 'Disconnected ❌' }}</span>
+    </div>
+
+    <div class="service-status" [class.connected]="firebaseStatus.firestore" [class.disconnected]="!firebaseStatus.firestore">
+      <h3>🔥 Firestore</h3>
+      <span class="status-badge">{{ firebaseStatus.firestore ? 'Connected ✅' : 'Disconnected ❌' }}</span>
+    </div>
+
+    <div class="service-status" [class.connected]="firebaseStatus.analytics" [class.disconnected]="!firebaseStatus.analytics">
+      <h3>📊 Analytics</h3>
+      <span class="status-badge">{{ firebaseStatus.analytics ? 'Connected ✅' : 'Disconnected ❌' }}</span>
+    </div>
+
+    <div class="service-status" [class.connected]="firebaseStatus.dataConnect" [class.disconnected]="!firebaseStatus.dataConnect">
+      <h3>📡 Data Connect</h3>
+      <span class="status-badge">{{ firebaseStatus.dataConnect ? 'Connected ✅' : 'Disconnected ❌' }}</span>
+    </div>
+  </div>
+
+  <div class="project-info" *ngIf="firebaseStatus.projectId">
+    <h3>📋 Project Information</h3>
+    <p><strong>Project ID:</strong> {{ firebaseStatus.projectId }}</p>
+    <p><strong>App Name:</strong> {{ firebaseStatus.appName }}</p>
+  </div>
+
+  <div class="actions">
+    <button class="btn-primary" (click)="checkFirebaseConnection()">
+      🔄 Refresh Connection Status
+    </button>
+    <button class="btn-secondary" (click)="testFirebaseServices()">
+      🧪 Test Firebase Services
+    </button>
+  </div>
+
+  <div class="instructions">
+    <h3>📝 How to Check Connection:</h3>
+    <ol>
+      <li>Open browser Developer Tools (F12)</li>
+      <li>Go to the Console tab</li>
+      <li>Look for Firebase connection logs starting with ✅ or ❌</li>
+      <li>Click the "Test Firebase Services" button above</li>
+      <li>Check the console for detailed connection information</li>
+    </ol>
+  </div>
+</div>

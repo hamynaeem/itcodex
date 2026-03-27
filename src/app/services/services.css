@@ -1,12 +1,34 @@
 /* Glassmorphism effect for service cards */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12), 0 0 0 2px rgba(255,255,255,0.18) inset;
+  backdrop-filter: blur(18px) saturate(220%) brightness(1.08);
+  -webkit-backdrop-filter: blur(18px) saturate(220%) brightness(1.08);
+  border-radius: 2rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-top: 2px solid rgba(255,255,255,0.7);
+  border-left: 2px solid rgba(255,255,255,0.7);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.glass-effect::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 2rem;
+  background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+.glass-effect:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 20px 48px rgba(31, 38, 135, 0.18), 0 0 0 4px rgba(255,255,255,0.22) inset;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.32);
+}
+.glass-effect:hover::after {
+  background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.28) 0%, transparent 70%);
 }
 .glass-effect:hover {
   transform: translateY(-6px) scale(1.03);
@@ -19,6 +41,22 @@
   overflow: hidden;
   padding-top: 4rem;
   padding-bottom: 4rem;
+
+section#featured-services {
+  background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 25%, #a1c4fd 50%, #c2e9fb 75%, #fbc2eb 100%);
+  animation: bgColorShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgColorShift {
+  0% {
+    background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 25%, #a1c4fd 50%, #c2e9fb 75%, #fbc2eb 100%);
+  }
+  50% {
+    background: linear-gradient(120deg, #fbc2eb 0%, #a1c4fd 25%, #fcb69f 50%, #ffecd2 75%, #c2e9fb 100%);
+  }
+  100% {
+    background: linear-gradient(120deg, #c2e9fb 0%, #fbc2eb 25%, #ffecd2 50%, #a1c4fd 75%, #fcb69f 100%);
+  }
 }
 
 #featured-services::before {
@@ -141,4 +179,5 @@
   .card-text {
     font-size: 0.95rem;
   }
+}
 }

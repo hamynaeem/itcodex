@@ -134,3 +134,33 @@ footer .d-flex a:hover {
     justify-content: center;
   }
 }
+
+/* Glass Dropdown Menu */
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  margin-top: 8px !important;
+}
+
+.glass-dropdown .dropdown-item {
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 10px 16px !important;
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  margin: 2px !important;
+}
+
+.glass-dropdown .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  transform: translateX(2px);
+}
+
+.glass-dropdown .dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  margin: 8px 0 !important;
+}

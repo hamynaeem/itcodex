@@ -3,6 +3,37 @@
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+  <!-- Floating particles -->
+  <div class="particles">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+  </div>
+</div>
+
+<!-- Floating Quick Contact Widget -->
+<div class="floating-contact-widget">
+  <div class="widget-toggle" onclick="toggleContactWidget()">
+    <i class="bi bi-chat-dots-fill"></i>
+  </div>
+  <div class="widget-content">
+    <h4>Quick Contact</h4>
+    <a href="https://wa.me/923036089020" target="_blank" rel="noopener noreferrer" class="quick-whatsapp">
+      <i class="bi bi-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="mailto:ftech1942@gmail.com" class="quick-email">
+      <i class="bi bi-envelope-fill"></i>
+      <span>Email</span>
+    </a>
+    <a href="tel:+923036089020" class="quick-call">
+      <i class="bi bi-telephone-fill"></i>
+      <span>Call</span>
+    </a>
+  </div>
 </div>
 
 <!-- Main Contact Section -->
@@ -10,9 +41,27 @@
   <div class="container">
     <!-- Floating Title -->
     <div class="text-center mb-5 hero-title">
-      <h1 class="glass-title">Let's Connect</h1>
-      <p class="glass-subtitle">Transform your ideas into digital reality</p>
-      <div class="title-decoration"></div>
+      <div class="title-icon-wrapper">
+        <i class="bi bi-chat-heart"></i>
+        <div class="icon-ripples">
+          <div class="ripple ripple-1"></div>
+          <div class="ripple ripple-2"></div>
+          <div class="ripple ripple-3"></div>
+        </div>
+      </div>
+      <h1 class="glass-title">
+        <span class="title-word" data-text="Let's">Let's</span>
+        <span class="title-word" data-text="Connect">Connect</span>
+      </h1>
+      <p class="glass-subtitle">
+        <span class="subtitle-highlight">Transform</span> your ideas into 
+        <span class="subtitle-highlight">digital reality</span>
+      </p>
+      <div class="title-decoration">
+        <div class="decoration-line"></div>
+        <div class="decoration-center"></div>
+        <div class="decoration-line"></div>
+      </div>
     </div>
 
     <div class="row g-4 align-items-stretch">
@@ -20,31 +69,72 @@
       <div class="col-lg-8">
         <div class="glass-card contact-form-card">
           <div class="card-glow"></div>
-          <h3 class="form-title">Send us a message</h3>
+          <div class="card-icon-header">
+            <div class="form-icon-badge">
+              <i class="bi bi-pencil-square"></i>
+            </div>
+            <h3 class="form-title">Send us a message</h3>
+          </div>
           
           <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="liquid-form">
-            <div class="form-group floating-input">
+            <div class="form-progress">
+              <div class="progress-line"></div>
+              <div class="progress-steps">
+                <div class="step active" data-step="1">1</div>
+                <div class="step" data-step="2">2</div>
+                <div class="step" data-step="3">3</div>
+              </div>
+            </div>
+
+            <div class="form-group floating-input" data-step="1">
+              <div class="input-icon">
+                <i class="bi bi-person-fill"></i>
+              </div>
               <input type="text" class="glass-input" formControlName="name" placeholder="Full Name" title="Full Name" required>
               <label class="floating-label">Full Name</label>
               <div class="input-line"></div>
+              <div class="input-validation">
+                <i class="bi bi-check-circle-fill validation-success"></i>
+                <i class="bi bi-exclamation-circle-fill validation-error"></i>
+              </div>
             </div>
 
-            <div class="form-group floating-input">
+            <div class="form-group floating-input" data-step="2">
+              <div class="input-icon">
+                <i class="bi bi-envelope-fill"></i>
+              </div>
               <input type="email" class="glass-input" formControlName="email" placeholder="Email Address" title="Email Address" required>
               <label class="floating-label">Email Address</label>
               <div class="input-line"></div>
+              <div class="input-validation">
+                <i class="bi bi-check-circle-fill validation-success"></i>
+                <i class="bi bi-exclamation-circle-fill validation-error"></i>
+              </div>
             </div>
 
-            <div class="form-group floating-input">
+            <div class="form-group floating-input" data-step="3">
+              <div class="input-icon">
+                <i class="bi bi-chat-text-fill"></i>
+              </div>
               <textarea class="glass-input glass-textarea" formControlName="message" placeholder="Type your message here" title="Your Message" rows="5" required></textarea>
               <label class="floating-label">Your Message</label>
               <div class="input-line"></div>
+              <div class="input-validation">
+                <i class="bi bi-check-circle-fill validation-success"></i>
+                <i class="bi bi-exclamation-circle-fill validation-error"></i>
+              </div>
             </div>
 
             <button type="submit" class="liquid-btn">
               <span class="btn-text">Send Message</span>
+              <div class="btn-icon">
+                <i class="bi bi-send-fill"></i>
+              </div>
               <div class="btn-ripple"></div>
               <div class="btn-glow"></div>
+              <div class="btn-loader">
+                <div class="spinner"></div>
+              </div>
             </button>
           </form>
         </div>
@@ -55,47 +145,74 @@
         <div class="contact-info-stack">
           <!-- Quick Contact -->
           <div class="glass-card info-card">
-            <div class="info-icon">
-              <div class="icon-wrapper">
-                <i class="bi bi-chat-dots"></i>
+            <div class="info-icon-container">
+              <div class="info-icon">
+                <div class="icon-wrapper">
+                  <i class="bi bi-chat-dots-fill"></i>
+                </div>
               </div>
+              <div class="icon-accent"></div>
             </div>
             <h4>Quick Connect</h4>
             <p class="phone-number">+92 303 6089 020</p>
             <p class="availability">Available Mon-Fri, 9AM-5PM</p>
+            <div class="status-indicator">
+              <div class="status-dot online"></div>
+              <span class="status-text">Online Now</span>
+            </div>
+            <a href="https://wa.me/923036089020?text=Hello! I would like to connect with you." target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+              <i class="bi bi-whatsapp"></i>
+              <span>Chat on WhatsApp</span>
+              <div class="btn-shine"></div>
+            </a>
           </div>
 
           <!-- Location Card -->
           <div class="glass-card info-card">
-            <div class="info-icon">
-              <div class="icon-wrapper">
-                <i class="bi bi-geo-alt"></i>
+            <div class="info-icon-container">
+              <div class="info-icon">
+                <div class="icon-wrapper">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
               </div>
+              <div class="icon-accent"></div>
             </div>
             <h4>Visit Us</h4>
             <p>River Garden, Gujrat, 44000</p>
             <p class="timezone">Pakistan Standard Time (GMT +5)</p>
+            <div class="location-preview">
+              <div class="map-placeholder">
+                <i class="bi bi-map"></i>
+                <span>View on Map</span>
+              </div>
+            </div>
           </div>
 
           <!-- Social Connect -->
           <div class="glass-card info-card social-card">
-            <div class="info-icon">
-              <div class="icon-wrapper">
-                <i class="bi bi-share"></i>
+            <div class="info-icon-container">
+              <div class="info-icon">
+                <div class="icon-wrapper">
+                  <i class="bi bi-share-fill"></i>
+                </div>
               </div>
+              <div class="icon-accent"></div>
             </div>
             <h4>Follow Us</h4>
             <div class="social-links">
-              <a href="#" class="social-link" title="Facebook">
+              <a href="https://wa.me/923036089020" target="_blank" rel="noopener noreferrer" class="social-link whatsapp-link" title="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link facebook-link" title="Facebook">
                 <i class="bi bi-facebook"></i>
               </a>
-              <a href="#" class="social-link" title="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link linkedin-link" title="LinkedIn">
                 <i class="bi bi-linkedin"></i>
               </a>
-              <a href="#" class="social-link" title="Twitter">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link twitter-link" title="Twitter">
                 <i class="bi bi-twitter-x"></i>
               </a>
-              <a href="#" class="social-link" title="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" title="Instagram">
                 <i class="bi bi-instagram"></i>
               </a>
             </div>
@@ -112,8 +229,11 @@
     <div class="row g-4">
       <div class="col-md-4">
         <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-envelope"></i>
+          <div class="detail-icon-wrapper">
+            <div class="detail-icon">
+              <i class="bi bi-envelope-check-fill"></i>
+            </div>
+            <div class="detail-icon-bg"></div>
           </div>
           <h3>Email Support</h3>
           <p class="detail-text">Get in touch for general inquiries</p>
@@ -123,8 +243,11 @@
 
       <div class="col-md-4">
         <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-clock"></i>
+          <div class="detail-icon-wrapper">
+            <div class="detail-icon">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <div class="detail-icon-bg"></div>
           </div>
           <h3>Working Hours</h3>
           <div class="hours-list">
@@ -146,8 +269,11 @@
 
       <div class="col-md-4">
         <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-headset"></i>
+          <div class="detail-icon-wrapper">
+            <div class="detail-icon">
+              <i class="bi bi-headset"></i>
+            </div>
+            <div class="detail-icon-bg"></div>
           </div>
           <h3>24/7 Support</h3>
           <p class="detail-text">Emergency support available</p>

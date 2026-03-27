@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/Home">Home</a>
+          <a class="nav-link" routerLink="/Home">Home</a>
         </li>
 
         <!-- Dropdown with animation -->
@@ -37,6 +37,29 @@
         <input class="form-control me-2 glass-input" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-light glass-btn" type="submit">Search</button>
       </form>
+
+      <!-- Auth Section -->
+      <div class="navbar-nav ms-3">
+        <!-- Show when NOT authenticated -->
+        <li class="nav-item" *ngIf="!(isAuthenticated$ | async)">
+          <a class="nav-link" routerLink="/user">Login / Sign Up</a>
+        </li>
+        
+        <!-- Show when authenticated -->
+        <ng-container *ngIf="isAuthenticated$ | async">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span *ngIf="user$ | async as user">{{ user.displayName || user.email }}</span>
+            </a>
+            <ul class="dropdown-menu glass-dropdown" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#" routerLink="/firebase">Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ng-container>
+      </div>
+
     </div>
   </div>
 </nav>
@@ -44,7 +67,10 @@
 <!-- Angular Router Outlet -->
 <router-outlet></router-outlet>
 
-<footer class="glass-footer-modern">
+<!-- Notification Component -->
+<app-notifications></app-notifications>
+
+<footer class="glass-footer-modern" *ngIf="showFooter">
   <div class="footer-content">
     <!-- Main Footer Content -->
     <div class="footer-main">
@@ -65,11 +91,11 @@
               <div class="footer-contact">
                 <div class="contact-item">
                   <i class="fas fa-envelope"></i>
-                  <span>hello@softcode.com</span>
+                  <span>fteh1942@gmail.com</span>
                 </div>
                 <div class="contact-item">
                   <i class="fas fa-phone"></i>
-                  <span>+1 (555) 123-4567</span>
+                  <span>+92 303 6089020</span>
                 </div>
               </div>
             </div>

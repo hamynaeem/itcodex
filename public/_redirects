@@ -1,0 +1,14 @@
+# Angular routing redirects for Netlify
+# This ensures that all routes are handled by Angular's router
+
+# Handle Angular routes - redirect all non-file requests to index.html
+/*    /index.html   200
+
+# API redirects (if you have any backend API routes)
+# /api/*  https://your-backend-api.com/api/:splat  200
+
+# Optional: Handle old URLs or redirects
+# /old-page  /new-page  301
+
+# Force HTTPS (optional - Netlify can also do this via UI)
+# http://softcoder.netlify.app/*  https://softcoder.netlify.app/:splat  301!

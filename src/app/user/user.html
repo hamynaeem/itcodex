@@ -1,0 +1,178 @@
+<div class="liquid-glass-container">
+  <!-- Floating Background Elements -->
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+    <div class="shape shape-5"></div>
+  </div>
+
+  <!-- Gradient Orbs -->
+  <div class="gradient-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="glass-auth-card">
+    <!-- Glass Header with Mode Toggle -->
+    <div class="glass-header">
+      <div class="mode-toggle">
+        <button 
+          [class.active]="isSignupMode" 
+          (click)="toggleMode(true)"
+          class="toggle-btn signup-btn">
+          <span class="btn-text">Sign Up</span>
+          <div class="btn-glow"></div>
+        </button>
+        <button 
+          [class.active]="!isSignupMode" 
+          (click)="toggleMode(false)"
+          class="toggle-btn login-btn">
+          <span class="btn-text">Log In</span>
+          <div class="btn-glow"></div>
+        </button>
+        <div class="toggle-slider" [ngClass]="{'slide-left': !isSignupMode, 'slide-right': isSignupMode}"></div>
+      </div>
+    </div>
+
+    <!-- Glass Form Container -->
+    <div class="glass-form-container">
+      <form class="liquid-form" (ngSubmit)="onSubmit()">
+        <!-- Dynamic Title with Animation -->
+        <div class="title-section">
+          <h2 class="glass-title" [ngClass]="{'animate-in': true}">
+            {{ isSignupMode ? 'Create Account' : 'Welcome Back' }}
+          </h2>
+          <p class="subtitle">{{ isSignupMode ? 'Join our community today' : 'Sign in to continue' }}</p>
+          <div class="title-glow"></div>
+        </div>
+        
+        <!-- Form Fields with Glass Effect -->
+        <div class="form-fields">
+          <!-- Username field (only for signup) -->
+          <div class="glass-input-group" *ngIf="isSignupMode" [@slideInOut]>
+            <div class="input-wrapper">
+              <label for="username" class="floating-label">Username</label>
+              <input 
+                type="text" 
+                id="username" 
+                name="username"
+                [(ngModel)]="formData.username"
+                class="glass-input"
+                placeholder="Enter your username"
+                required>
+              <div class="input-glow"></div>
+              <div class="input-border"></div>
+            </div>
+          </div>
+
+          <!-- Email field -->
+          <div class="glass-input-group">
+            <div class="input-wrapper">
+              <label for="email" class="floating-label">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                [(ngModel)]="formData.email"
+                class="glass-input"
+                placeholder="Enter your email"
+                required>
+              <div class="input-glow"></div>
+              <div class="input-border"></div>
+            </div>
+          </div>
+
+          <!-- Password field -->
+          <div class="glass-input-group">
+            <div class="input-wrapper">
+              <label for="password" class="floating-label">Password</label>
+              <input 
+                type="password" 
+                id="password" 
+                name="password"
+                [(ngModel)]="formData.password"
+                class="glass-input"
+                placeholder="Enter your password"
+                required>
+              <div class="input-glow"></div>
+              <div class="input-border"></div>
+            </div>
+          </div>
+
+          <!-- Confirm Password field (only for signup) -->
+          <div class="glass-input-group" *ngIf="isSignupMode" [@slideInOut]>
+            <div class="input-wrapper">
+              <label for="confirmPassword" class="floating-label">Confirm Password</label>
+              <input 
+                type="password" 
+                id="confirmPassword" 
+                name="confirmPassword"
+                [(ngModel)]="formData.confirmPassword"
+                class="glass-input"
+                placeholder="Confirm your password"
+                required>
+              <div class="input-glow"></div>
+              <div class="input-border"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Glass Submit Button -->
+        <div class="submit-section">
+          <button type="submit" class="glass-submit-btn" [disabled]="isLoading">
+            <span class="btn-content">
+              <span class="btn-text">
+                <span *ngIf="!isLoading">{{ isSignupMode ? 'Create Account' : 'Sign In' }}</span>
+                <span *ngIf="isLoading">{{ isSignupMode ? 'Creating Account...' : 'Signing In...' }}</span>
+              </span>
+              <div class="btn-icon" *ngIf="!isLoading">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+              <div class="btn-icon loading-spinner" *ngIf="isLoading">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="m16 12-4-4-4 4"/>
+                  <path d="m12 16V8"/>
+                </svg>
+              </div>
+            </span>
+            <div class="btn-liquid-bg"></div>
+            <div class="btn-shine"></div>
+          </button>
+        </div>
+
+        <!-- Alternative Action with Glass Effect -->
+        <div class="alt-section">
+          <div class="divider">
+            <span class="divider-text">or</span>
+            <div class="divider-line"></div>
+          </div>
+          <p class="alt-text">
+            <span *ngIf="isSignupMode">Already have an account? </span>
+            <span *ngIf="!isSignupMode">Don't have an account? </span>
+            <a href="#" (click)="toggleMode(!isSignupMode)" class="glass-link">
+              {{ isSignupMode ? 'Sign In' : 'Create Account' }}
+              <div class="link-glow"></div>
+            </a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="card-glow"></div>
+    <div class="card-border"></div>
+  </div>
+
+  <!-- Liquid Waves Animation -->
+  <div class="liquid-waves">
+    <div class="wave wave-1"></div>
+    <div class="wave wave-2"></div>
+    <div class="wave wave-3"></div>
+  </div>
+</div>

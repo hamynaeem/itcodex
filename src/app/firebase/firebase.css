@@ -1,0 +1,154 @@
+.firebase-status-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.service-status {
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.service-status.connected {
+  border-color: #28a745;
+  background: #f8fff9;
+}
+
+.service-status.disconnected {
+  border-color: #dc3545;
+  background: #fff8f8;
+}
+
+.service-status h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.connected .status-badge {
+  background: #d4edda;
+  color: #155724;
+}
+
+.disconnected .status-badge {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.project-info {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+  margin-bottom: 2rem;
+}
+
+.project-info h3 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.project-info p {
+  margin: 0.5rem 0;
+}
+
+.actions {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+}
+
+.instructions {
+  background: #e9ecef;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+}
+
+.instructions h3 {
+  margin-top: 0;
+  color: #856404;
+}
+
+.instructions ol {
+  margin-bottom: 0;
+  padding-left: 1.5rem;
+}
+
+.instructions li {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .firebase-status-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .actions {
+    text-align: left;
+  }
+  
+  .btn-primary, .btn-secondary {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
