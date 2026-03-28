@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build -- --configuration production"
+  publish = "dist/softcoder"
+
+[dev]
+  command = "npm start"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
