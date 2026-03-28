@@ -1,5 +1,7 @@
 # Softcoder
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9c6afc2a-e54c-41b9-a2c1-004f7371a121/deploy-status)](https://app.netlify.com/projects/itcodex/deploys)
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
 
 ## Development server
