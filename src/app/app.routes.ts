@@ -8,6 +8,7 @@ import { Website } from './website/website';
 import { User } from './user/user';
 import { Firebase } from './firebase/firebase';
 import { authGuard, nonAuthGuard } from './guards/auth.guard';
+import { Resume } from './resume/resume';
 
 
 export const routes: Routes = [
@@ -42,6 +43,11 @@ export const routes: Routes = [
     path: 'Website',
     component: Website,
    
+  },
+  {
+    path: 'Resume',
+    component: Resume
+
   },
   {
     path:'user',
